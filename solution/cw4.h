@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 int czy_doskonala(int a);
 void czy_doskonala_test();
 void czy_n_doskonale();

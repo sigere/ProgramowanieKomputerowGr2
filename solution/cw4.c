@@ -78,7 +78,7 @@ void wypisz_liczby()
 	int dlugosc;
 	char znak[100] = "";
 	printf("Podaj znaki:");
-	scanf_s("%s", znak, sizeof(znak));
+	scanf_s("%s", znak, (unsigned)sizeof(znak));
 	dlugosc = strlen(znak);
 	for (int i = 0; i <= dlugosc; ++i)
 	{

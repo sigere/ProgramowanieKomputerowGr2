@@ -12,7 +12,7 @@ int czy_armstronga(int a)
 	int lena, suma, b, c, pierwotna;
 	suma = 0;
 	sprintf_s(tab, sizeof(tab), "%d", a);
-	lena = strlen(tab);
+	lena = (int)strlen(tab);
 	pierwotna = a;
 	for (int i = 0; i <= (lena - 1); ++i)
 	{
@@ -115,4 +115,111 @@ void test_czy_pierwsza()
 		return;
 	}
 	printf("Liczba %d %s pierwsza\n", a, czy_pierwsza(a) ? "jest" : "nie jest");
+}
+
+int czy_parzysta(int a)
+{
+	return a % 2 == 0;
+}
+
+void test_czy_parzysta()
+{
+	int a;
+	printf("Podaj a:");
+	if (scanf_s("%d", &a) < 1 || ferror(stdin))
+	{
+		printf("Niepoprawne dane.\n");
+		return;
+	}
+	printf("Liczba %d jest %s.\n", a, czy_parzysta(a) ? "parzysta" : "nieparzysta");
+}
+
+//SprawdŸ, czy liczba jest potêg¹ dwójki
+
+void test_sprintf()
+{
+	int a;
+	char buf[10];
+	printf("Podaj a:");
+	if (scanf_s("%d", &a) < 1 || ferror(stdin))
+	{
+		printf("Niepoprawne dane.\n");
+		return;
+	}
+	sprintf_s(buf, sizeof(buf), "%d", a);
+	printf("%s\n%c\n", buf, buf[0]);
+}
+
+int czy_potega_dwojki(int a)
+{
+	int b = a / 2;
+	if (a == 1)
+	{
+		return 1;
+	}
+	if (a % 2 != 0)
+	{
+		return 0;
+	}
+	while (b > 1)
+	{
+		if (b % 2 == 1)
+		{
+			return 0;
+		}
+		b = b / 2;
+	}
+	return 1;
+}
+
+void test_potega_dwojki()
+{
+	int a;
+	printf("Podaj liczbe:");
+	if (scanf_s("%d", &a) < 1 || ferror(stdin))
+	{
+		printf("Niepoprawne dane.\n");
+		return;
+	}
+	printf("Liczba %d %s potega dwojki.\n", a, czy_potega_dwojki(a) ? "jest" : "nie jest");
+}
+
+int czy_potega_dwojki_2(int a)
+{
+	int i;
+	for (i = 1; i < a; i *= 2) {}
+	return i == a;
+}
+
+
+//SprawdŸ, czy liczba jest automorficzna
+
+int czy_automorficzna(int a)
+{
+	char buf[10], buf2[25];
+	int lena, lena2;
+	sprintf_s(buf, sizeof(buf), "%d", a);
+	lena = (int)strlen(buf);
+	sprintf_s(buf2, sizeof(buf2), "%d", a * a);
+	lena2 = (int)strlen(buf2);
+	for (int i = lena - 1, j = lena2 - 1; i >= 0; --i, --j)
+	{
+		if (buf[i] != buf2[j])
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+void test_czy_automorficzna()
+{
+	int a;
+	printf("Podaj liczbe:");
+	if (scanf_s("%d", &a) < 1 || ferror(stdin))
+	{
+		printf("Niepoprawne dane\n");
+		return;
+	}
+	printf("Liczba %d %s", a, czy_automorficzna(a) ? "jest automorficzna" : "nie jest automorficzna");
 }
