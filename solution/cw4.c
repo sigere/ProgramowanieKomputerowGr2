@@ -168,10 +168,10 @@ void najwiekszen()
 
 void najwiekszen2()
 {
-	double n = 1;
-	while (pow(1.02, n) <= 1000 * n * n)
+	int n = 1;
+	while (pow(1.02, n) <= 1000 * pow(n,2))
 		n++;
-	printf("Najwieksza liczba to %lf\n", n);
+	printf("Najwieksza liczba to %d\n", n);
 }
 
 //zad7 Napisz funckję, która wyznacza największy wspólny dzielnik.
@@ -195,8 +195,8 @@ void nwd()
 	printf("Najwiekszy wspolny dzielnik to %d\n", a);
 }
 
-//Napisz funkcję, która zamienia liczby na system u2.
-
+//zad 8 Napisz funkcję, która zamienia liczby na system u2.
+void repair(int* tab);
 void dec2u2()
 {
 	int a;
