@@ -13,4 +13,6 @@ int main()
 	printf("%s\n",checkIfPalindrome(1223221) ? "true" : "false");
 	printf("%s\n",checkIfPalindrome(1) ? "true" : "false");
 	printf("%s\n",checkIfPalindrome(111) ? "true" : "false");
+
+	printf("%d\n", reverseAndAdd(195));
 }
