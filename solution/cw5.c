@@ -30,3 +30,15 @@ int reverseAndAdd(int a)
 	}
 	return a;
 }
+
+void startedWith(char c, char* str)
+{
+	char* tmp = NULL;
+	char* token = strtok_s(str, " ,\t\n", &tmp);
+	while(token)
+	{
+		if ((char)tolower(token[0]) == c)
+			printf("%s ", token);
+		token = strtok_s(NULL, " ,\t\n", &tmp);
+	}
+}

@@ -15,4 +15,6 @@ int main()
 	printf("%s\n",checkIfPalindrome(111) ? "true" : "false");
 
 	printf("%d\n", reverseAndAdd(195));
+	char string1[] ="ala Algieria alabama niea Ataman";
+	startedWith('a', string1);
 }
