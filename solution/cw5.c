@@ -58,3 +58,18 @@ void cipher(char* text)
 
 	printf("%s\n", text);
 }
+
+int longWordsCount(int n, char* str) {	
+	char* tmp = NULL; //pomocnicza zmienna wymagana przez strtok_s
+	char* token = strtok_s(str, " ,\t\n", &tmp);
+	
+	int result = 0;
+	while (token)
+	{
+		printf("%d", strlen(token));
+		if (strlen(token) >= n)
+			result++;
+		token = strtok_s(NULL, " ,\t\n", &tmp);
+	}
+	return result;
+}

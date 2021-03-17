@@ -19,4 +19,6 @@ int main()
 	startedWith('a', string1);
 	char string2[] = "abcdefghijklmnopqrstuvwxyz";
 	cipher(string2);
+	char string3[] = "abc abcd abcde abc";
+	printf("%d", longWordsCount(4, string3));
 }
