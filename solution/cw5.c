@@ -66,7 +66,6 @@ int longWordsCount(int n, char* str) {
 	int result = 0;
 	while (token)
 	{
-		printf("%d", strlen(token));
 		if (strlen(token) >= n)
 			result++;
 		token = strtok_s(NULL, " ,\t\n", &tmp);
