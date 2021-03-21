@@ -8,7 +8,7 @@
 #include <stdbool.h>
 
 int main()
-{
+ {
 	/*printf("%s\n", checkIfPalindrome(101) ? "true" : "false");
 	printf("%s\n", checkIfPalindrome(1101) ? "true" : "false");
 	printf("%s\n", checkIfPalindrome(1223221) ? "true" : "false");
@@ -23,6 +23,8 @@ int main()
 	char string3[] = "abc abcd abcde abc";
 	printf("%d\n", longWordsCount(4, string3));
 
-	printf("%f", bisection(0.0001, -2, 2));*/
+	printf("%f\n", bisection(0.0001, -2, 2));*/
 	printf("%.12lf\n", pi(20));
+
+	printf("%f", monte_carlo(100000000));
 }
