@@ -26,5 +26,7 @@ int main()
 	printf("%f\n", bisection(0.0001, -2, 2));*/
 	printf("%.12lf\n", pi(20));
 
-	printf("%f", monte_carlo(100000000));
+	//printf("%f", monte_carlo(100000000));
+
+	printf("%f", integral(100,0,1));
 }

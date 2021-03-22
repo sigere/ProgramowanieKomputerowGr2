@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define SWAP(x, y, T) do { T SWAP = x; x = y; y = SWAP; } while (0)
+
 float function(float input) {
 	return input * input * input - input + 1;
 }
@@ -55,4 +57,20 @@ double monte_carlo(int n)
 			m++;
 	}
 	return 4.0 * (double)m / (double)n;
+}
+
+double integral(int precision, float a, float b)
+{
+	double h = (b - a) / (double)precision;
+	double result = 0.0;
+	double base_a = function(a);
+	double base_b;
+
+	for (int i = 0; i < precision; ++i)
+	{
+		base_b = function(a + h * i);
+		result += (base_a + base_b) * 0.5 * h;
+		base_a = base_b;
+	}
+	return result;
 }
