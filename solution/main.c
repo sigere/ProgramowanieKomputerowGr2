@@ -9,6 +9,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+
 int main()
 {
 	/*printf("%s\n", checkIfPalindrome(101) ? "true" : "false");
@@ -32,27 +33,16 @@ int main()
 
 	//printf("%f\n", integral(100, 0, 1));
 
-	/*int arr[] = { 1,3,2,4,5,2,1,3,2,8 };
-	int n = sizeof(arr) / sizeof(int);
-	for (int i = 0; i < n; ++i)
-		printf("%d, ", arr[i]);
-	printf("\n");
-
-	bouble_sort(arr, n);
-	for (int i = 0; i < n; ++i)
-		printf("%d, ", arr[i]);
-	printf("\n");*/
-
-	time_t tt;
-	int salt = time(&tt);
+	/*time_t tt;
+	unsigned int salt = time(&tt);
 	srand(salt);
 	int r = 5, c = 7;
-	int** arr2 = (int*)malloc(r * sizeof(int*));
+	int** arr2 = (int**)malloc(r * sizeof(int*));
 	for (int i = 0; i < r; ++i)
 	{
-		arr2[i] = malloc(c * sizeof(int));
+		arr2[i] = (int*)malloc(c * sizeof(int));
 		for (int j = 0; j < c; ++j)
-			arr2[i][j] = rand()%10;
+			arr2[i][j] = (int)rand()%10;
 	}
 
 	for (int i = 0; i < r; ++i)
@@ -73,17 +63,26 @@ int main()
 		printf("\n");
 	}
 
-	printf("\n");
+	printf("\n");*/
 
-	printf("sztuczki i akrobacje\n");
+	/*printf("sztuczki i akrobacje\n");
 	int b[] = { 9,8,7,6,5 };
 	int a[] = { 4,3,1,2,0 };
 	sztuczki_i_akrobacje(a, b, 5);
 	int n = sizeof(a) / sizeof(int);
 	for (int i = 0; i < n; ++i)
 		printf("%d, ", b[i]);
+	printf("\n");*/
+	int arr[] = { 1,3,2,4,5,2,1,3,2,8 };
+	int n = sizeof(arr) / sizeof(int);
+	for (int i = 0; i < n; ++i)
+		printf("%d, ", arr[i]);
 	printf("\n");
 
-
+	insert_sort(arr, n);
+	for (int i = 0; i < n; ++i)
+		printf("%d, ", arr[i]);
+	printf("\n");
+	return 0;
 }
 
