@@ -143,6 +143,7 @@
     <ClCompile Include="cw4.c" />
     <ClCompile Include="cw5.c" />
     <ClCompile Include="cw6.c" />
+    <ClCompile Include="cw7.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="cw4.h" />
     <ClInclude Include="cw5.h" />
     <ClInclude Include="cw6.h" />
+    <ClInclude Include="cw7.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
