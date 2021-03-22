@@ -74,5 +74,16 @@ int main()
 	}
 
 	printf("\n");
+
+	printf("sztuczki i akrobacje\n");
+	int b[] = { 9,8,7,6,5 };
+	int a[] = { 4,3,1,2,0 };
+	sztuczki_i_akrobacje(a, b, 5);
+	int n = sizeof(a) / sizeof(int);
+	for (int i = 0; i < n; ++i)
+		printf("%d, ", b[i]);
+	printf("\n");
+
+
 }
 
