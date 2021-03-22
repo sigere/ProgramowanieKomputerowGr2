@@ -35,14 +35,14 @@ void sztuczki_i_akrobacje(int* a, int* b, int n)
 void insert_sort(int* arr, int n) //poprawiony
 {
 	int tmp;
-	for (int i = 0; i < n-1; ++i)//dla kazdego elementu
+	for (int i = 0; i < n-1; ++i)//dla i-tego (kazdego oprocz ostatniego) elementu
 	{
-		int j = i + 1;
 		int tmp = i;
-		for(int j = i+1; j<n; j++) //poszukaj 'za nim' elementu najmniejszego
+		for(int j = i+1; j<n; j++) //poszukaj 'za nim' elementu najmniejszego i przechowuj jego index w tmp
 			if (arr[j] < arr[tmp])
 				tmp = j;
-		//znaleziony najmnij
+		//znaleziony najmniejszy (mozliwe ze nie ma mniejszego, wtedy tmp == i)
+		//zamien z i-tym
 		SWAP(arr[i], arr[tmp], int);
 	}
 }
