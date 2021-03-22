@@ -32,19 +32,17 @@ void sztuczki_i_akrobacje(int* a, int* b, int n)
 			}
 }
 
-void insert_sort(int* arr, int n)
+void insert_sort(int* arr, int n) //poprawiony
 {
 	int tmp;
-	for (int i = 0; i < n-1; ++i)
+	for (int i = 0; i < n-1; ++i)//dla kazdego elementu
 	{
 		int j = i + 1;
 		int tmp = i;
-		while (j < n)
-		{
+		for(int j = i+1; j<n; j++) //poszukaj 'za nim' elementu najmniejszego
 			if (arr[j] < arr[tmp])
 				tmp = j;
-			j++;
-		}
+		//znaleziony najmnij
 		SWAP(arr[i], arr[tmp], int);
 	}
 }
