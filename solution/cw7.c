@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 #define SWAP(x, y, T){ T SWAP = x; x = y; y = SWAP; }
 
@@ -45,4 +47,48 @@ void insert_sort(int* arr, int n) //poprawiony
 		//zamien z i-tym
 		SWAP(arr[i], arr[tmp], int);
 	}
+}
+
+int** fragmentation(int* arr, int n)
+{
+	int k = n % (int)sqrt(n) ? (int)sqrt(n) + 1 : (int)sqrt(n);// jesli elementów jest wiecej niz (int)n/k, zwiekszam k o jeden na pozosta³e elementy
+	int elements = n;
+
+	int* used = malloc(n * sizeof(int));//pomocnicza tablica - przechowuje informacje, których elementow z arr ju¿ u¿yto
+	for (int i = 0; i < n-1; i++)
+		used[i] = 0;
+
+	int index_of_biggest = 0;// znajdz najwiekszy element
+	for (int i = 0; i < n; i++)
+		if (arr[i] > arr[index_of_biggest])
+			index_of_biggest = i;
+	
+	int** result = (int**)malloc(k * sizeof(int*));//tablica dwówymiarowa - deklaracja wierszy
+	for (int i = 0; i < k; i++) {
+		int size = n / (int)sqrt(n);// rozmiar wiersza (liczba komorek)
+		result[i] = (int*)malloc(size * sizeof(int)); //deklaracja komorek w wierszach
+		for (int j = 0; j < size && elements--; j++) //elements to liczba pozosta³ych w arr nieu¿ytych wartoœci,
+		{											// gdy siê wyzeruje, nie mo¿na kontynuowaæ
+			int index = index_of_biggest; // znajdz najmniejszy(jego index) z nieu¿ytych
+			for (int q = 0; q < n; q++)
+				if (arr[q] < arr[index] && !used[q])
+					index = q;
+			used[index] = 1;//zaznacz, ¿e u¿y³eœ tej wartoœci
+			result[i][j] = index; //zapisz ten index
+		}
+	}
+
+
+	//-------wyswietlanie----------
+	elements = n;
+	int size = n / (int)sqrt(n);
+	for (int i = 0; i < k; i++)
+	{
+		for (int j = 0; j < size && elements--; j++)
+			printf("%d, ", arr[result[i][j]]);
+		printf("\n");
+	}
+
+
+	return result;
 }
