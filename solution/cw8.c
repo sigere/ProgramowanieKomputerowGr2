@@ -51,6 +51,14 @@ int first_capital(char* text, int size, int n)
 	return first_capital(text, size, n+1);
 }
 
+int w_len(char* c)
+{
+	if (*c == '\0')
+		return 0;
+	else
+		return w_len(c + 1) + 1;
+}
+
 void hanoi(int n, char x, char y, char z, FILE* fp)
 {
 	if (n == 1)
