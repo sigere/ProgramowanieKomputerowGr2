@@ -91,8 +91,10 @@ int main()
 	printf("\n");
 
 	fragmentation(arr,10);
-
-	uno();
+	FILE* fp;
+	fopen_s(&fp, "hanoiKrzysztofMarczak.txt", "w+");
+	hanoi(3,'a','b','c',fp);
+	fclose(fp);
 
 	return 0;
 }

@@ -13,25 +13,16 @@ int fibbonacii(int n) {
 	return fibbonacii(n - 1) + fibbonacii(n - 2);
 }
 
-void uno() {
-	char a='a', b='b';
-	char word[64];
-	printf("podaj litere: \n");
-	scanf_s("%c", &a);
-	printf("podaj litere: \n");
-	scanf_s("%c", &b);
-
-	printf("podaj s³owa: \n");
-	fgets(word, sizeof(word), stdin);
-
-	for(int i=0; i<strlen(word); i++)
+void hanoi(int n, char x, char y, char z, FILE* fp)
+{
+	if (n == 1)
 	{
-		if (word[i] == a)
-			word[i] = b;
-		else if (word[i] == b)
-			word[i] = a;
-		i++;
+		fprintf(fp, "przenies krazek 1 z %c na %c\n", x, y);
+		printf("przenies krazek 1 z %c na %c\n", x, y);
+		return;
 	}
-
-	printf("%s\n", word);
+	hanoi(n - 1, x, z, y,fp);
+	fprintf(fp, "przenies krazek %d z %c na %c\n",n, x, y);
+	printf("przenies krazek %d z %c na %c\n",n, x, y);
+	hanoi(n - 1, z, y, x,fp);
 }

@@ -1,0 +1,7 @@
+przenies krazek 1 z a na b
+przenies krazek 2 z a na c
+przenies krazek 1 z b na c
+przenies krazek 3 z a na b
+przenies krazek 1 z c na a
+przenies krazek 2 z c na b
+przenies krazek 1 z a na b
