@@ -39,7 +39,7 @@ char* to_binary(int dec)
 		return malloc(255 * sizeof(char));
 	char digit = dec % 2 + '0';
 	dec /= 2;
-	return strcat(to_binary(dec),&digit);
+	return strcat_s(to_binary(dec),255,&digit);
 }
 
 int first_capital(char* text, int size, int n)

@@ -9,25 +9,25 @@ float function(float input) {
 	return input * input * input - input + 1;
 }
 
-float bisection(float precision, int a, int b)
-{
-	if (a > b)
-	{
-		int tmp = a;
-		a = b;
-		b = tmp;
-	}
-
-	if (function(a) * function(b) > 0)
-		return -1.0;
-	float val = function((b + a) / 2);
-	printf("val: %f\n", val);
-	if (abs(val) < precision) {
-		printf("%d, %d\n", a, b);
-		return (b + a) / 2.0;
-	}
-	return val ? bisection(precision, (b + a) / 2, b) : bisection(precision, a, (b + a) / 2);
-}
+//float bisection(float precision, int a, int b)
+//{
+//	if (a > b)
+//	{
+//		int tmp = a;
+//		a = b;
+//		b = tmp;
+//	}
+//
+//	if (function(a) * function(b) > 0)
+//		return -1.0;
+//	float val = function((b + a) / 2);
+//	printf("val: %f\n", val);
+//	if (abs(val) < precision) {
+//		printf("%d, %d\n", a, b);
+//		return (b + a) / 2.0;
+//	}
+//	return val ? bisection(precision, (b + a) / 2, b) : bisection(precision, a, (b + a) / 2);
+//}
 
 
 double pi(int n)
