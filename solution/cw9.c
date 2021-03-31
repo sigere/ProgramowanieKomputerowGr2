@@ -57,7 +57,7 @@ void delete_empty_lines_from_file()
         perror("output.txt");
 
     if (in) fclose(in);
-    if (out) fclose(in);
+    if (out) fclose(out);
 }
 
 int recursive_max(int* arr, int n)
@@ -85,16 +85,3 @@ double recursive_pi(int n)
     return recursive_pi(n - 1) + ((4 / (2 * n - 1)) * sign);
 }
 
-int kwiz(int* arr, int n)
-{
-    if (n == 1)
-        return arr[0];
-    int max = kwiz(arr, n - 1);
-    return arr[n - 1] < max ? max : arr[n - 1];
-}
-
-void test_kwiz()
-{
-    int arr[] = {2,0,2,10,3,1,3,1};
-    printf("%d\n", kwiz(arr, 8));
-}

@@ -7,6 +7,7 @@
 #include "cw4.h"
 #include "cw3.h"
 #include "cw9.h"
+#include "cw10.h"
 #include <stdbool.h>
 #include <stdlib.h>
 
@@ -97,7 +98,7 @@ int main()
 	hanoi(3,'a','b','c',fp);
 	fclose(fp);*/
 
-	test_kwiz();
+	test();
 
 	return 0;
 }
