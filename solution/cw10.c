@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
+#include <stdlib.h>
 
 typedef struct{
 	char name[50];
@@ -49,14 +50,51 @@ void load_persons()
 void read_persons()
 {
 	FILE* f;
-	person arr[5];
+	person* arr;
+	person tmp;
+	int n = 0;
 	fopen_s(&f, "output.binary", "r");
-	for (int i = 0; i < 5; ++i)
+	if (f)
 	{
-		fread(&arr[i], sizeof(person), 1, f);
-		print_person(&arr[i]);
-	}
+		while (fread(&tmp, sizeof(person),1, f)) ++n;
+		rewind(f);
 
+		arr = malloc((n+2) * sizeof(person));
+		int i = 0;
+		for (i = 0; i < n; ++i)
+		{
+			fread(&arr[i], sizeof(person), 1, f);
+			print_person(&arr[i]);
+		}
+
+		person p = { "Brad", "Pitt", 1632235486 };
+		arr[i++] = p;
+		person tmp2 = { "Johny", "Deep", 1638546486 };
+		arr[i] = tmp2;
+
+		fclose(f);
+
+		fopen_s(&f, "output.binary", "w");
+		if (f)
+		{
+			for (int i = 0; i < n+2; ++i)
+				fwrite(&arr[i], sizeof(person), 1, f);
+			fclose(f);
+		}
+	}
+}
+
+void read_and_print()
+{
+	FILE* f;
+	person tmp;
+	fopen_s(&f, "output.binary", "r");
+	if (f)
+	{
+		while (fread(&tmp, sizeof(person), 1, f))
+			print_person(&tmp);
+		fclose(f);
+	}
 }
 
 void test() {
@@ -67,6 +105,6 @@ void test() {
 	read_person(&p);
 	print_person(&p);*/
 	//load_persons();
-	read_persons();
+	read_and_print();
 }
 
