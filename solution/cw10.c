@@ -84,6 +84,62 @@ void read_persons()
 	}
 }
 
+void read_and_sort()
+{
+	FILE* f;
+	FILE* fout;
+	person* arr;
+	person* result;
+	person tmp;
+	int n = 0;
+	fopen_s(&f, "output.binary", "r");
+	if (f)
+	{
+		while (fread(&tmp, sizeof(person), 1, f)) ++n;
+		rewind(f);
+		arr = malloc(n * sizeof(person));
+
+		for (int i = 0; i < n; ++i)
+		{
+			fread(&arr[i], sizeof(person), 1, f);
+		}
+		fclose(f);
+
+		for (int i = 0; i < n-1; ++i)
+		{
+			int index = i+1;
+			for (int j = i; j < n; j++)
+				if (compare(arr[j].surname, arr[index].surname) == 1)
+					index = j;
+			person tmp = arr[i];
+			arr[i] = arr[index];
+			arr[index] = tmp;
+
+		}
+		fopen_s(&f, "output.binary", "w");
+		if (f)
+		{
+			for (int i = 0; i < n; ++i)
+				fwrite(&arr[i], sizeof(person), 1, f);
+			fclose(f);
+		}
+	}
+}
+
+int compare(char* str1, char* str2)
+{
+	int len = strlen(str1);
+	if (strlen(str2) < len)
+		len = strlen(str2);
+
+	for(int i=0; i<len; ++i)
+		if (str1[i] < str2[i])
+			return 1;
+		else if (str1[i] > str2[i])
+			return 2;
+	return 3;
+}
+
 void read_and_print()
 {
 	FILE* f;
@@ -105,6 +161,8 @@ void test() {
 	read_person(&p);
 	print_person(&p);*/
 	//load_persons();
+	//read_and_sort();
+	//read_and_print();
 	read_and_print();
 }
 
