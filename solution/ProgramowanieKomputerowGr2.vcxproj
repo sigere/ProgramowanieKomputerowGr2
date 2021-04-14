@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cw10.c" />
+    <ClCompile Include="cw11.c" />
     <ClCompile Include="cw3.c" />
     <ClCompile Include="cw4.c" />
     <ClCompile Include="cw5.c" />
@@ -147,10 +148,12 @@
     <ClCompile Include="cw7.c" />
     <ClCompile Include="cw8.c" />
     <ClCompile Include="cw9.c" />
+    <ClCompile Include="kolokwium.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cw10.h" />
+    <ClInclude Include="cw11.h" />
     <ClInclude Include="cw3.h" />
     <ClInclude Include="cw4.h" />
     <ClInclude Include="cw5.h" />

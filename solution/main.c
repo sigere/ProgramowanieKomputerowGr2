@@ -12,8 +12,14 @@
 #include <stdlib.h>
 
 
+
 int main()
 {
+	toBinary("123",3);
+	toDecimal("001100010011001000110011", 3*8);
+
+	//for (int i = 0; i < 3 * 8; i++)
+	//	printf("%c", arr[i]);
 	/*printf("%s\n", checkIfPalindrome(101) ? "true" : "false");
 	printf("%s\n", checkIfPalindrome(1101) ? "true" : "false");
 	printf("%s\n", checkIfPalindrome(1223221) ? "true" : "false");
@@ -98,7 +104,9 @@ int main()
 	hanoi(3,'a','b','c',fp);
 	fclose(fp);*/
 
-	test();
+	//test();
+	//float x = -1.1;
+	//FN(x);
 
 	return 0;
 }
