@@ -15,8 +15,10 @@
 
 int main()
 {
-	toBinary("123",3);
-	toDecimal("001100010011001000110011", 3*8);
+	fToBinary();
+
+	/*toBinary("123",3);
+	toDecimal("001100010011001000110011", 3*8);*/
 
 	//for (int i = 0; i < 3 * 8; i++)
 	//	printf("%c", arr[i]);

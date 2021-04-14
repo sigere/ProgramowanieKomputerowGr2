@@ -40,3 +40,27 @@ void toDecimal(char* arr, int n)
     }
     printf("\n");
 }
+
+void fToBinary()
+{
+    FILE* in;
+    FILE* out;
+    int c;
+    int tmp = 0;
+    fopen_s(&in, "input.txt", "r");
+    fopen_s(&out, "output.txt", "w");
+    if (in && out) 
+        while ((c = getc(in)) != EOF)
+            for (int k = 7; k >= 0; k--)
+                if ((int)c >> k & 1)
+                    fprintf(out, "%d", 1);
+                else
+                    fprintf(out, "%d", 0);
+    else if (!in)
+        perror("input.txt");
+    else if (!out)
+        perror("output.txt");
+
+    if (in) fclose(in);
+    if (out) fclose(out);
+}
