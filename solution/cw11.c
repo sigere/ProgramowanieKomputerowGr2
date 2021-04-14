@@ -3,9 +3,21 @@
 #include <string.h>
 #include <stdlib.h>
 
-void toBinary(char* arr, int n)
+
+struct node {
+    int value;
+} node;
+
+struct ndge {
+    struct node* from;
+    struct node* to;
+} edge;
+
+
+char* toBinary(char* arr, int n)
 {
-    char* result = malloc(sizeof(char)*n*8);
+    char* result = malloc(sizeof(char) * n * 8 + 1);
+    result[n * 8] = NULL;
     int j = 0;
     for (int i = 0; i < n; ++i)
     {
@@ -14,14 +26,15 @@ void toBinary(char* arr, int n)
         {
             int tmp = x >> c;
             if (tmp & 1)
-                result[j++] = 1;
+                result[j++] = '1';
             else
-                result[j++] = 0;
+                result[j++] = '0';
         }
     }
-    for (int i = 0; i < n * 8; i++)
+    return result;
+    /*for (int i = 0; i < n * 8; i++)
         printf("%d", result[i]);
-    printf("\n");
+    printf("\n");*/
 }
 
 void toDecimal(char* arr, int n)
@@ -31,14 +44,18 @@ void toDecimal(char* arr, int n)
         return;
     }
 
+    char* result = (char*)malloc(sizeof(char) * n / 8 + 1);
+    result[n / 8] = NULL;
+    int k = 0;
+
     for (int i = 0; i < n / 8; ++i)
     {
         int letter = 0;
         for (int j = 0; j < 8; j++)
             letter += (arr[i * 8 + j] - '0') << (7-j);
-        printf("%c", letter+'0');
+        result[k++] = (char)(letter + '0');
     }
-    printf("\n");
+    return result;
 }
 
 void fToBinary()
@@ -51,11 +68,12 @@ void fToBinary()
     fopen_s(&out, "output.txt", "w");
     if (in && out) 
         while ((c = getc(in)) != EOF)
-            for (int k = 7; k >= 0; k--)
-                if ((int)c >> k & 1)
-                    fprintf(out, "%d", 1);
-                else
-                    fprintf(out, "%d", 0);
+        {
+            char tmp[1];
+            tmp[0] = (char)c;
+            fprintf(out, "%s", toBinary(tmp,1));
+        }
+            
     else if (!in)
         perror("input.txt");
     else if (!out)

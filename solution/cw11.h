@@ -1,4 +1,5 @@
 #pragma once
-void toBinary(char* arr, int n);
-void toDecimal(char* arr, int n);
+char* toBinary(char* arr, int n);
+char* toDecimal(char* arr, int n);
 void fToBinary();
+

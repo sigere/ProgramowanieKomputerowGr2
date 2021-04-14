@@ -8,6 +8,7 @@
 #include "cw3.h"
 #include "cw9.h"
 #include "cw10.h"
+#include "cw11.h"
 #include <stdbool.h>
 #include <stdlib.h>
 
@@ -16,9 +17,11 @@
 int main()
 {
 	fToBinary();
+	return 0;
 
-	/*toBinary("123",3);
-	toDecimal("001100010011001000110011", 3*8);*/
+	char* x = toDecimal("001100010011001000110011", 3 * 8);
+	printf("%s\n", x);
+	//toDecimal("001100010011001000110011", 3*8);
 
 	//for (int i = 0; i < 3 * 8; i++)
 	//	printf("%c", arr[i]);
